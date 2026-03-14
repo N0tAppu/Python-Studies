@@ -1,5 +1,0 @@
-print("This is Pythogorous Theorm in Action!!")
-print()
-a = float(input("Enter base for the Triangle; "))
-b = float(input("Enter Height of your triangle: "))
-print("The Hypotenuse of triangle is : ",((a**2+b**2)**.5))
