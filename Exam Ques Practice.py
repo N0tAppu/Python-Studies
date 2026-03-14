@@ -7,6 +7,8 @@ salary.
 iii. If the salary is below 30,000, the bonus is 5% of the salary.
 The program should print the total salary including the bonus.
 '''
+
+'''
 name = str(input("Enter Employee Name:"))
 salary = float(input(f"Enter Salary of {name}: "))
 print()
@@ -22,3 +24,38 @@ elif salary <=0 or salary >50000:
     print("Salary out of range!")
 total_salary = round(salary+(salary*bonus),2)
 print(f"Total Salary of {name} including Bonus is: {total_salary}")
+'''
+
+'''
+Develop a Python program with a menu-driven system to perform temperature
+conversions using functions. The menu should include:
+i. Celsius to Fahrenheit F=(C×9/5) +32
+ii. Fahrenheit to Celsius C=(F−32) ×5/9
+Each option should be handled using a separate function.
+'''
+flag = True
+def c_to_f(c):
+    return round((c*9/5) +32,3)
+def f_to_c(f):
+    return round((f-32)*(5/9),2)
+while flag:
+    print("""
+====== Temperature Conversion ======
+1       Celcius to Farenheit
+2       Farenheit to Celcius
+3       Exit Program
+""")
+    choice = int(input("Enter Your Choice: "))
+    if choice ==1:
+        c = float(input("Enter Temperature in Celcius: "))
+        f = c_to_f(c)
+        print(f"{c}C is {f}F")
+    elif choice ==2:
+        f = float(input("Enter Temperature in Farenheit: "))
+        c = f_to_c(f)
+        print(f"{f}F is {c}C")
+    elif choice ==3:
+        flag = False
+        print("Exiting Program!")
+    else:
+        print("Invalid Input!")
