@@ -33,7 +33,7 @@ i. Celsius to Fahrenheit F=(C×9/5) +32
 ii. Fahrenheit to Celsius C=(F−32) ×5/9
 Each option should be handled using a separate function.
 '''
-flag = True
+'''flag = True
 def c_to_f(c):
     return round((c*9/5) +32,3)
 def f_to_c(f):
@@ -58,4 +58,26 @@ while flag:
         flag = False
         print("Exiting Program!")
     else:
-        print("Invalid Input!")
+        print("Invalid Input!")'''
+
+
+'''
+Develop a Python program that defines a function calculate_bill() which accepts
+electricity units as input. Calculate the total bill amount based on the following
+conditions.
+i. If units are up to 100, the charge is ₹5 per unit.
+ii. If units are between 101 and 300, the charge is ₹7 per unit.
+iii. If units are above 300, the charge is ₹10 per unit.
+'''
+def calculate_bill(units):
+    if 0 < units <= 100:
+        return units * 5
+    elif units <= 300:
+        return units * 7
+    elif units > 300:
+        return units * 10
+    else:
+        return 0
+unit = float(input("Enter Units Used: "))
+total_bill_amt = calculate_bill(unit)
+print(f"Bill amount for using {unit} unit is {total_bill_amt}")
