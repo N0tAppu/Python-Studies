@@ -14,13 +14,13 @@ while flag:
     if choice ==1:
         name = str(input("Enter Item name: "))
         price = float(input("Enter item price: "))
-        quandity = float(input("Enter Quandity: "))
-        while quandity <=0:
-            print("Inavlid Quandity for Item!!. Try Again")
-            quandity = int(input("Enter Quandity: "))
-        cart[name] = price
-        cart["Quandity"] = quandity
-        cart["Total"] = price*quandity
+        quantity = float(input("Enter Quantity: "))
+        while quantity <=0:
+            print("Inavlid Quantity for Item!!. Try Again")
+            Quantity = int(input("Enter Quantity: "))
+        cart["Price"] = price
+        cart["Quantity"] = quantity
+        cart["Total"] = price*quantity
         carts[name] = cart
         print("Item Added to Cart Successfully!")
 
@@ -30,14 +30,16 @@ while flag:
         else:
             print("Displaying All Items in Cart \n")
             for item in carts:
-                for key,val in cart[item].items():
-                    print(key,"\t",val)
+                print("\nItems: ",item)
+                for key,val in carts[item].items():
+                    print(f"{key:<12} : {val}")
+                print()
     elif choice == 3:
         if len(carts) == 0:
-            print("YOur Cart is Empyt!")
+            print("Your Cart is Empyt!")
         else:
-            print("\nTotal Price for All Items: ")
             totalc =0
+            print("\nTotal Price for All Items in Cart: ",end = "")
             for item in carts:
                 totalc += carts[item]["Total"]
             print(totalc)

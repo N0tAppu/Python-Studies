@@ -1,0 +1,318 @@
+Python shortcuts.
+from 2.3.1.2 , Comments:
+
+To select comment on multiple lines or uncomment< use Ctrl + / to do it
+
+new function from 3.1.1.10
+ 
+to find the largest no among some no: use
+
+n = max(var1,var2,var3,...)
+
+for smallest no use:
+
+ n = min(var1, var2, var3,....)
+
+py note 3.1.1.13
+
+if you want to exit an loop of if or break any nested function midway:
+ 
+ use exit()
+
+   eg;
+  	if bread == 1:
+	   print("toast is available")
+           exit()
+	else:
+	   print("Sorry we are out of bread")
+	print("Check if butter is available")
+
+   Here when bread is available, it print "Toast is available"
+   and the check butter will not function. is bread was not available, it would been printed 
+
+*** Use of else: at end of while or for loop stops the loop at that condition.
+
+
+***Bit wise operation***
+
+complement  ~   (tilde)   eg:  A = {1} and U = {1,2,3}   then A' = {2,3}
+And  &
+Or   |
+XOR  ^
+Left Shift    <<
+Right Shift   >>
+
+
+
+Lists:
+
+A list can be used to assign multile numbers to a variable. Square brackets are used for this.
+
+
+eg:
+numbers =[2,5,10,0]
+element 1 of number can be represented as;
+
+print(numbers[0])
+
+Output:  2
+
+
+Points:
+* They are numbered from 0
+* All the saved numbers are scalars.
+* the list length is 5. (Like us considering distance from orgin, 0 is also considered as an value.)
+* While taking element in a list var, using negative no like -1 will take the value of the last element. as for -2 the one before last one.
+
+Like this length of a list can be calculated by using len()
+
+eg:
+ Input
+    print("Length of List is: ", len(numbers))
+ 
+ Output
+   
+     Length of the List is : 5
+
+
+ Like this we can also delete an element from a list using "del"
+ 
+  eg: Input
+        print("Changed list", del numbers[0])
+
+      Output
+        Changed list: [5,10,0]
+
+
+List Methods
+============
+
+append()
+---------
+
+This is used to glue a new elemental value to the end of a list.
+
+it is use like,   list =[1,2,3,4,5]
+
+now add 6 to the end, 
+
+      list.append(6)
+this adds the value 6 to the end of the list
+
+
+
+
+insert()
+--------
+
+The insert() method is a bit smarter - it can add a new element at any place in the list, not only at the end.
+
+list.insert(location, value)
+
+
+
+Bubble sort algorithm.
+---------------------
+
+It is a simple algorithm used to sort data in a list.
+
+for example.
+
+num = [2,8,4,6,1]
+swapped = True
+while swapped:
+   swapped = False
+   for i in range (len(num)-1):
+       if num[i] > num[i+1]:
+           swapped = True
+           num[i],num[i+1] = num[i+1],num[i]
+print(num)
+
+This code will sort the list in ascending order.
+
+Note!!!: The swapped variable is IMPORTANT for the functioning of the algorithm here.
+
+
+
+Another cmds for List
+---------------------
+
+sort()
+-------
+
+sort() can be sued to sort a list in ascending order.
+eg:
+
+list.sort()
+print(list)  #This prints sorted list.
+
+*This also works for string.
+
+reverse()
+---------
+
+reverse() can be use to reverse the postion of elements in a list
+
+num =[1,2,3,4,5}
+num.reverse()
+print(num)
+
+Output: [5,4,3,2,1]
+
+*This also works for string.
+
+
+**Important Info about lists**
+===============================
+list_1 = [1]
+list_2 = list_1
+list_1[0] = [2]
+print(list_2)
+
+
+The output will be [2].
+
+This is because: The assignment: list_2 = list_1 copies the name of the array, not its contents.
+In effect, the two names (list_1 and list_2) identify the same location in the computer memory.
+Modifying one of them affects the other, and vice versa.
+
+You could say that:
+*The name of an ordinary variable is the name of its content;
+*The name of a list is the name of a memory location where the list is stored.
+
+So to prevent this and instead of copying the name of a list, we can make it so 
+a list will only store data of the element we want to that list.
+for this we use "Slice"
+
+eg:
+ 
+num1 = [1]
+num2 = num1[:]
+num1[0] = 2
+print(num2)
+
+output:
+1
+
+[:] is called a slice. it is used at the back of the name of the list we equated to prevent the 
+updating of data for the 2nd lsit.
+
+*A slice is able to create a brand new list instead of sharing same data as equated list.
+
+
+It can also be used to choose elements inside a list.
+
+num =[1,2,3,4,5]
+list = num[1:4]
+print(list)
+
+Output [1,2,3]
+
+So the format of slicing is actually like this
+
+list = num[start:end]
+
+So the start value is the value which is the starting of element in the new list.
+While the end value is the starting of the number which is not added to the list.
+
+So basically the list will have (end - start) elements.
+
+Tricks with this slicing:
+
+We could leave this each side of the slice empty to choose entire list.
+But but emptying either one side is a different story.
+
+Look at this:
+
+num = [1,2,3,4,5,6]
+list = num[:5]
+print(list)
+
+Output = [1,2,3,4,5]
+
+*When we leave the start value empty, it thinks that the start value is from 0 (the first element)
+*When we leave the end value empty instead will make it that the end value = len(my_list)
+
+Negatives in list slicing:
+-------------------------
+num = [1,2,3,4,5,6]
+list = num[1:-1]
+print(list)
+
+Output = [2,3,4,5]
+
+This is because we know in indexing of list elements, negative number for indexing means numbering from the back. 
+Thats why this happens.
+
+Looks at this;
+
+num = [1,2,3,4,5,6]
+list = num[-1:1]
+print(list)
+
+Output: Error
+
+Here the start value is negative. Its not possible. naming of list always starts from 0.
+
+
+List in lists
+=============
+List has a nature of multidimentionality.
+You know you could nest list inside list.
+We could write create list like this tooo.
+
+For eg;
+squares = [x*2 for x in range(10)]
+
+This creates a list of squares.
+
+like this,
+another eg;
+WHITE_PAWN = "white pawn"
+row = [WHITE_PAWN for i in range (8)]
+
+This creates a list named row with 8 white pawns like that of chess. 
+
+To make an entire chess board you could use list nesting.
+like
+for an entire chess board with no chess pieces.
+
+board = [[WHITE_PAWN for i in range 90(1)]for j in range(8)]
+
+this creates an empty chess board.
+
+Like this we could also do 3d list. 
+
+These are called arrays and can be considered as Matrixes.
+and Unlike that in matrixes, element indexing starts from 0.
+
+for eg:
+A = [[1,2,3,4]for i in ragne(3)]
+print(A)
+
+This could create a matrix
+[[1,2,3,4],
+ [1,2,3,4],
+ [1,2,3,4]]
+
+The position of first element is A[0][0]
+and last element is A[2][3]
+
+This is still 2 D. We could go over board and create 3D or more.
+
+
+Functions
+==========
+It often happens that a particular piece of code is repeated many times in your program. It's repeated either literally, or with only a few minor modifications,
+ consisting of the use of other variables in the same algorithm. It also happens that a programmer cannot resist simplifying the work, and begins to clone such
+ pieces of code using the clipboard and copy-paste operations.
+
+It could end up as greatly frustrating when suddenly it turns out that there was an error in the cloned code. 
+The programmer will have a lot of drudgery to find all the places that need corrections. 
+There's also a high risk of the corrections causing errors.
+
+We can now define the first condition which can help you decide when to start writing your own functions:
+ if a particular fragment of the code begins to appear in more than one place, consider the possibility of 
+isolating it in the form of a function invoked from the points where the original code was placed before.
+
+
